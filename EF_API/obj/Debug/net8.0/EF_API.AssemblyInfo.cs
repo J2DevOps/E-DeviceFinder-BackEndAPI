@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EF_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bae944c987808f9c5b578fe0546050f1c648bee1")]
 [assembly: System.Reflection.AssemblyProductAttribute("EF_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EF_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

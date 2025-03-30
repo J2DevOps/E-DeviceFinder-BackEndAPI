@@ -1,6 +1,22 @@
+using CORE.UserServices;
+using DATA.Context;
+using DATA.Interface;
+using DATA.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IApplicationuserServices, ApplicationuserServices>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
+builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EFDbContext")));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+
+       .AddEntityFrameworkStores<EFDbContext>()
+       .AddDefaultTokenProviders();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

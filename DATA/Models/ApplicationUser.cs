@@ -1,6 +1,8 @@
-﻿namespace DATA.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace DATA.Models
 {
-    public class ApplicationUser
+    public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
 
