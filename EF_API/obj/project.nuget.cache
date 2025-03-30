@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SpFpq9BDP3+4CMjoCvJWJpGLbjM2b3JAI2LAho0AiG0KIWi7SYOUN22gozY7EIW8ORZrR/loHjEbU9KWMEqzow==",
+  "dgSpecHash": "ZdY9XHC6X/XSzv1hoCR6sO30rgy6VvFo+OPeDMINqta6kocrymuXBHt9tXNRGp8Rm2sE2Ftgj0/I3GjOK/CJ6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\EF_API\\EF_API.csproj",
+  "projectFilePath": "C:\\Users\\johnn\\Downloads\\NewAPIClone\\E-DeviceFinder-BackEndAPI\\EF_API\\EF_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\johnn\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
