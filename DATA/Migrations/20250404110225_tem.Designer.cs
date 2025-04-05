@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DATA.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20250329235013_EFDB")]
-    partial class EFDB
+    [Migration("20250404110225_tem")]
+    partial class tem
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -177,8 +177,8 @@ namespace DATA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -190,6 +190,9 @@ namespace DATA.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LocationId")

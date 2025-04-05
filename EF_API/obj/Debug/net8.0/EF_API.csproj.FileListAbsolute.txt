@@ -282,3 +282,6 @@ C:\Users\johnn\Downloads\NewAPIClone\E-DeviceFinder-BackEndAPI\EF_API\obj\Debug\
 C:\Users\johnn\Downloads\NewAPIClone\E-DeviceFinder-BackEndAPI\EF_API\obj\Debug\net8.0\EF_API.pdb
 C:\Users\johnn\Downloads\NewAPIClone\E-DeviceFinder-BackEndAPI\EF_API\obj\Debug\net8.0\EF_API.genruntimeconfig.cache
 C:\Users\johnn\Downloads\NewAPIClone\E-DeviceFinder-BackEndAPI\EF_API\obj\Debug\net8.0\ref\EF_API.dll
+C:\Users\johnn\Downloads\NewAPIClone\E-DeviceFinder-BackEndAPI\EF_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\johnn\Downloads\NewAPIClone\E-DeviceFinder-BackEndAPI\EF_API\bin\Debug\net8.0\CloudinaryDotNet.dll
+C:\Users\johnn\Downloads\NewAPIClone\E-DeviceFinder-BackEndAPI\EF_API\bin\Debug\net8.0\Newtonsoft.Json.dll

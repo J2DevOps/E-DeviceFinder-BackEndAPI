@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DATA.Migrations
 {
     /// <inheritdoc />
-    public partial class EFDB : Migration
+    public partial class Mendey : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -166,7 +166,7 @@ namespace DATA.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Category = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateLost = table.Column<DateTime>(type: "datetime2", nullable: false),

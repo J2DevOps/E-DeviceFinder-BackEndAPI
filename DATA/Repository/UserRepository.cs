@@ -106,4 +106,10 @@ public class UserRepository : IUserRepository
         var result = await _dbContext.SaveChangesAsync();
         return result > 0 ? true : false;
     }
+    public async Task<IEnumerable<ApplicationUser>> GetAllUsers()
+    {
+        var users = await _dbContext.Users.ToListAsync();
+        return users.Count > 0 ? users : null;
+
+    }
 }
