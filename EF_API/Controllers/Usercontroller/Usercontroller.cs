@@ -36,6 +36,13 @@ namespace EF_API.Controllers.Usercontroller
             return StatusCode(response.StatusCode, response);
         }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> UserAuth(LoginRequestDto userDto)
+        {
+            var response = await _userService.UserLogin(userDto);
+            return StatusCode(response.StatusCode, response);
+        }
+
         /// <summary>
         /// Retrieves a user by username.
         /// </summary>
@@ -45,6 +52,12 @@ namespace EF_API.Controllers.Usercontroller
         public async Task<IActionResult> GetUserByUsername(string userName)
         {
             var response = await _userService.GetUserByUsername(userName);
+            return StatusCode(response.StatusCode, response);
+        }
+        [HttpGet("users")]
+        public async Task<IActionResult> GetAllUser()
+        {
+            var response = await _userService.GetAllUsers();
             return StatusCode(response.StatusCode, response);
         }
 
