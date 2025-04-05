@@ -11,6 +11,8 @@ namespace CORE.UserServices
         Task<ResponseDto> CreateUser(UserRequestDto user);
 
         Task<ResponseDto> GetUserByUsername(string userName);
+        Task<ResponseDto> GetAllUsers();
+        Task<LoginResponseDto> UserLogin(LoginRequestDto user);
 
 
     }
