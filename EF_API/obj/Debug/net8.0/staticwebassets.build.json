@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "U7u0+4AkCLK0WyQk3q0o8KSREFpJGsydKL8dN/BK7T4=",
+  "Hash": "Hvea61nLVy7jZVqhnDYsDyWlYfzWnZzIh5D3ydEmBfc=",
   "Source": "EF_API",
   "BasePath": "_content/EF_API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }
