@@ -11,7 +11,6 @@ namespace DATA.Interface
 
         Task<bool> EditUser(ApplicationUser user);
         Task<bool> CreateUser(ApplicationUser user);
-        Task<IEnumerable<ApplicationUser>> GetAllUsers();
 
 
 

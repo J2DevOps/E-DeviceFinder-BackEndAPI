@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj": {}
+    "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj": {
+    "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj",
+        "projectUniqueName": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj",
         "projectName": "CORE",
-        "projectPath": "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\CORE\\obj\\",
+        "projectPath": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj",
+        "packagesPath": "C:\\Users\\johnn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\CORE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\johnn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj": {
-                "projectPath": "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj"
+              "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj": {
+                "projectPath": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj"
               }
             }
           }
@@ -43,13 +43,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -70,24 +64,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj": {
+    "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
+        "projectUniqueName": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
         "projectName": "DATA",
-        "projectPath": "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Backend\\E-DeviceFinder-BackEndAPI\\DATA\\obj\\",
+        "projectPath": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
+        "packagesPath": "C:\\Users\\johnn\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\johnn\\Downloads\\API\\EE-DeviceFinder-BackEndAPI\\DATA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\johnn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -109,22 +103,12 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Http": {
-              "target": "Package",
-              "version": "[2.3.0, )"
-            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -154,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
