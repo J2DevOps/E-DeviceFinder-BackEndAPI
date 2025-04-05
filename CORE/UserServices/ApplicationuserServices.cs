@@ -4,9 +4,13 @@ using DATA.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using Claim = System.Security.Claims.Claim;
 
 namespace CORE.UserServices
@@ -67,7 +71,7 @@ namespace CORE.UserServices
         {
             // Check if the email already exists
             var existingUser = await _userManager.FindByEmailAsync(user.Email);
-            if (existingUser != null)
+            if(existingUser != null)
             {
                 return new ResponseDto { StatusCode = 400, Message = "Email already in use" };
             }
@@ -83,7 +87,7 @@ namespace CORE.UserServices
 
             // Create the user
             var isCreated = await _userManager.CreateAsync(newUser, user.Password);
-            if (!isCreated.Succeeded)
+            if(!isCreated.Succeeded)
             {
                 // Return error with detailed messages from IdentityResult
                 var errorMessage = string.Join(", ", isCreated.Errors.Select(e => e.Description));
@@ -92,7 +96,7 @@ namespace CORE.UserServices
 
             // Assign role to the user
             var addToRoleResult = await _userManager.AddToRoleAsync(newUser, "User");
-            if (!addToRoleResult.Succeeded)
+            if(!addToRoleResult.Succeeded)
             {
                 // If role assignment fails, delete the user and return the error
                 await _userManager.DeleteAsync(newUser);
@@ -107,14 +111,14 @@ namespace CORE.UserServices
         public async Task<LoginResponseDto> UserLogin(LoginRequestDto user)
         {
             var userLogin = await _userManager.FindByEmailAsync(user.Email);
-            if (user == null)
+            if(user == null)
             {
                 return new LoginResponseDto { StatusCode = 400, Message = "Invalid username or password." };
             }
 
 
 
-            if (await _userManager.CheckPasswordAsync(userLogin, user.Password))
+            if(await _userManager.CheckPasswordAsync(userLogin, user.Password))
             {
                 var authClaims = new List<Claim>
             {
