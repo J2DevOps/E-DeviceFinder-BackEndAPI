@@ -1,10 +1,9 @@
-﻿using CloudinaryDotNet;
+﻿using AutoMapper;
+using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using DATA.DTO;
 using DATA.Interface;
 using DATA.Models;
-using System;
-using System.Threading.Tasks;
 
 namespace CORE.ReportService
 {
@@ -13,6 +12,7 @@ namespace CORE.ReportService
         private readonly IReport _reportRepository;
         private readonly IITemRepository _iTem;
         private readonly Cloudinary _cloudinary;
+        private readonly IMapper _mapper;
 
 
 
@@ -21,11 +21,13 @@ namespace CORE.ReportService
         /// Uses IReportRepository for database interactions and returns standardized ResponseDto.
         /// </summary>
 
-        public ReportService(IReport reportRepository, IITemRepository iTem, Cloudinary cloudinary)
+        public ReportService(IReport reportRepository, IITemRepository iTem,
+            Cloudinary cloudinary, IMapper mapper)
         {
             _reportRepository = reportRepository;
             _iTem = iTem;
             _cloudinary = cloudinary;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -55,10 +57,29 @@ namespace CORE.ReportService
         }
         public async Task<ResponseDto> GetAllReports()
         {
-            var reports = await _reportRepository.GetAllReportsAsync();
-            return reports != null
-                ? new ResponseDto { StatusCode = 200, Message = "Users found", Result = reports }
-                : new ResponseDto { StatusCode = 404, Message = "Users not found" };
+            var response = new ResponseDto();
+            List<ReportResponseDto> listreports = new List<ReportResponseDto>();
+
+
+            var appreports = await _reportRepository.GetAllReportsAsync();
+            if(appreports.Any())
+            {
+
+                foreach(var report in appreports)
+                {
+                    var mappedreport = _mapper.Map<ReportResponseDto>(report);
+                    listreports.Add(mappedreport);
+
+                }
+                response.Result = listreports;
+                response.StatusCode = 200;
+                return response;
+
+
+            }
+            response.Result = null;
+            response.StatusCode = 404;
+            return response;
         }
 
         /// <summary>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rAxkq5npna/CmOy2FWDktktIIFTdSFdlT2+bqFsRgQ1BqGQO46ntzzBpbDCmAyxJWQFqdVF4HLj/ygQUTu0DQw==",
+  "dgSpecHash": "TqM+PmFZM0mh0xwKDpifP1ti/85A7+PPtGjMcKBRx+0kJSt7GllRzUf3z1eGFqIRQcPDYGJdTfOu6XgJnTPrNw==",
   "success": true,
   "projectFilePath": "C:\\Users\\johnn\\Downloads\\MAIN\\E-DeviceFinder-BackEndAPI\\CORE\\CORE.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\johnn\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\cloudinarydotnet\\1.27.5\\cloudinarydotnet.1.27.5.nupkg.sha512",
