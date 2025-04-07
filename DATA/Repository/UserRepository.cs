@@ -47,7 +47,7 @@ public class UserRepository : IUserRepository
     /// <returns>True if user is created successfully; otherwise, false.</returns>
     public async Task<bool> CreateUser(ApplicationUser user)
     {
-        if (await _dbContext.Users.AnyAsync(x => x.Email == user.Email || x.PhoneNumber == user.PhoneNumber))
+        if(await _dbContext.Users.AnyAsync(x => x.Email == user.Email || x.PhoneNumber == user.PhoneNumber))
         {
             return false; // User already exists
         }
@@ -65,7 +65,7 @@ public class UserRepository : IUserRepository
     public async Task<bool> EditUser(ApplicationUser user)
     {
         var existingUser = await _dbContext.Users.FindAsync(user.Id);
-        if (existingUser == null)
+        if(existingUser == null)
             return false;
 
         // Update fields
@@ -96,10 +96,10 @@ public class UserRepository : IUserRepository
     /// </summary>
     /// <param name="userId">The ID of the user to be deleted.</param>
     /// <returns>True if deletion is successful; otherwise, false.</returns>
-    public async Task<bool> DeleteUser(int userId)
+    public async Task<bool> DeleteUser(string userId)
     {
         var user = await _dbContext.Users.FindAsync(userId);
-        if (user == null)
+        if(user == null)
             return false;
 
         _dbContext.Users.Remove(user);

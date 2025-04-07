@@ -15,6 +15,7 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 builder.Services.AddScoped<IApplicationuserServices, ApplicationuserServices>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IReport, ReportRepository>();
@@ -22,7 +23,11 @@ builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<IITemRepository, ItemRepository>();
 
 
-builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EFDbContext")));
+//builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EFDbContext")));
+// Configure SQLite connection string
+builder.Services.AddDbContext<EFDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("EFDbContext")));
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
        .AddEntityFrameworkStores<EFDbContext>()
@@ -92,6 +97,15 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -99,6 +113,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseCors("AllowAll");
 
 // Seed data
 using(var scope = app.Services.CreateScope())
