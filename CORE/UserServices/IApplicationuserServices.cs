@@ -5,7 +5,7 @@ namespace CORE.UserServices
 {
     public interface IApplicationuserServices
     {
-        Task<ResponseDto> DeleteUser(int userId);
+        Task<ResponseDto> DeleteUser(string userId);
         Task<ResponseDto> UpdateUser(ApplicationUser userUpdate);
         Task<ResponseDto> EditUser(ApplicationUser user);
         Task<ResponseDto> CreateUser(UserRequestDto user);

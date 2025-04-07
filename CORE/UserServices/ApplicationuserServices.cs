@@ -1,7 +1,9 @@
-﻿using DATA.DTO;
+﻿using AutoMapper;
+using DATA.DTO;
 using DATA.Interface;
 using DATA.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -21,6 +23,7 @@ namespace CORE.UserServices
         /// Uses UserRepository for database interactions and returns standardized ResponseDto.
         /// </summary>
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
         public IConfiguration _configuration { get; }
 
@@ -30,11 +33,13 @@ namespace CORE.UserServices
         /// Constructor to inject the user repository.
         /// </summary>
         /// <param name="userRepository">Instance of IUserRepository.</param>
-        public ApplicationuserServices(UserManager<ApplicationUser> userManager, IConfiguration configuration, IUserRepository userRepository)
+        public ApplicationuserServices(UserManager<ApplicationUser> userManager,
+            IConfiguration configuration, IUserRepository userRepository, IMapper mapper)
         {
             _userManager = userManager;
             _configuration = configuration;
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -52,10 +57,30 @@ namespace CORE.UserServices
 
         public async Task<ResponseDto> GetAllUsers()
         {
-            var users = await _userRepository.GetAllUsers();
-            return users != null
-                ? new ResponseDto { StatusCode = 200, Message = "Users found", Result = users }
-                : new ResponseDto { StatusCode = 404, Message = "Users not found" };
+            var response = new ResponseDto();
+            List<UserRsponseDto> users = new List<UserRsponseDto>();
+
+
+            var ApplicationUsers = await _userManager.Users.ToListAsync();
+            if(ApplicationUsers.Any())
+            {
+
+                foreach(var user in ApplicationUsers)
+                {
+                    var mappedUser = _mapper.Map<UserRsponseDto>(user);
+                    users.Add(mappedUser);
+
+                }
+                response.Result = users;
+                response.StatusCode = 200;
+                return response;
+
+
+            }
+            response.Result = null;
+            response.StatusCode = 404;
+            return response;
+
         }
 
         /// <summary>
@@ -67,7 +92,7 @@ namespace CORE.UserServices
         {
             // Check if the email already exists
             var existingUser = await _userManager.FindByEmailAsync(user.Email);
-            if (existingUser != null)
+            if(existingUser != null)
             {
                 return new ResponseDto { StatusCode = 400, Message = "Email already in use" };
             }
@@ -83,7 +108,7 @@ namespace CORE.UserServices
 
             // Create the user
             var isCreated = await _userManager.CreateAsync(newUser, user.Password);
-            if (!isCreated.Succeeded)
+            if(!isCreated.Succeeded)
             {
                 // Return error with detailed messages from IdentityResult
                 var errorMessage = string.Join(", ", isCreated.Errors.Select(e => e.Description));
@@ -92,7 +117,7 @@ namespace CORE.UserServices
 
             // Assign role to the user
             var addToRoleResult = await _userManager.AddToRoleAsync(newUser, "User");
-            if (!addToRoleResult.Succeeded)
+            if(!addToRoleResult.Succeeded)
             {
                 // If role assignment fails, delete the user and return the error
                 await _userManager.DeleteAsync(newUser);
@@ -107,14 +132,14 @@ namespace CORE.UserServices
         public async Task<LoginResponseDto> UserLogin(LoginRequestDto user)
         {
             var userLogin = await _userManager.FindByEmailAsync(user.Email);
-            if (user == null)
+            if(user == null)
             {
                 return new LoginResponseDto { StatusCode = 400, Message = "Invalid username or password." };
             }
 
 
 
-            if (await _userManager.CheckPasswordAsync(userLogin, user.Password))
+            if(await _userManager.CheckPasswordAsync(userLogin, user.Password))
             {
                 var authClaims = new List<Claim>
             {
@@ -190,7 +215,7 @@ namespace CORE.UserServices
         /// </summary>
         /// <param name="userId">User ID.</param>
         /// <returns>ResponseDto indicating success or failure.</returns>
-        public async Task<ResponseDto> DeleteUser(int userId)
+        public async Task<ResponseDto> DeleteUser(string userId)
         {
             bool isDeleted = await _userRepository.DeleteUser(userId);
             return isDeleted
