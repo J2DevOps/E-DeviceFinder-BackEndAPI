@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AutoMapper/14.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Azure.Core/1.25.0": {
         "type": "package",
         "dependencies": {
@@ -1153,6 +1169,21 @@
     }
   },
   "libraries": {
+    "AutoMapper/14.0.0": {
+      "sha512": "OC+1neAPM4oCCqQj3g2GJ2shziNNhOkxmNB9cVS8jtx4JbgmRzLcUOxB9Tsz6cVPHugdkHgCaCrTjjSI0Z5sCQ==",
+      "type": "package",
+      "path": "automapper/14.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.14.0.0.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/net8.0/AutoMapper.dll",
+        "lib/net8.0/AutoMapper.xml"
+      ]
+    },
     "Azure.Core/1.25.0": {
       "sha512": "X8Dd4sAggS84KScWIjEbFAdt2U1KDolQopTPoHVubG2y3CM54f9l6asVrP5Uy384NWXjsspPYaJgz5xHc+KvTA==",
       "type": "package",
@@ -3047,6 +3078,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "AutoMapper >= 14.0.0",
       "Microsoft.AspNetCore.Http >= 2.3.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0",
@@ -3060,11 +3092,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\johnn\\Downloads\\MAIN\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
+      "projectUniqueName": "C:\\Users\\johnn\\Downloads\\MAIN\\MAIN2\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
       "projectName": "DATA",
-      "projectPath": "C:\\Users\\johnn\\Downloads\\MAIN\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
+      "projectPath": "C:\\Users\\johnn\\Downloads\\MAIN\\MAIN2\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
       "packagesPath": "C:\\Users\\johnn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johnn\\Downloads\\MAIN\\E-DeviceFinder-BackEndAPI\\DATA\\obj\\",
+      "outputPath": "C:\\Users\\johnn\\Downloads\\MAIN\\MAIN2\\E-DeviceFinder-BackEndAPI\\DATA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3098,6 +3130,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[14.0.0, )"
+          },
           "Microsoft.AspNetCore.Http": {
             "target": "Package",
             "version": "[2.3.0, )"

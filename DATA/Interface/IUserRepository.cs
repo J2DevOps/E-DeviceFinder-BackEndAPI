@@ -6,7 +6,7 @@ namespace DATA.Interface
     {
         Task<ApplicationUser> GetUser(string UserName);
         Task<bool> GetUserbyPhone(string PhoneNumber);
-        Task<bool> DeleteUser(int userId);
+        Task<bool> DeleteUser(string userId);
         Task<bool> UpdateUser(ApplicationUser userupdate);
 
         Task<bool> EditUser(ApplicationUser user);
