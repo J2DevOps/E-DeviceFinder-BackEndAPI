@@ -91,7 +91,7 @@ namespace EF_API.Controllers.Usercontroller
         /// <param name="userId">User ID.</param>
         /// <returns>HTTP response with status.</returns>
         [HttpDelete("delete/{userId}")]
-        public async Task<IActionResult> DeleteUser(int userId)
+        public async Task<IActionResult> DeleteUser(string userId)
         {
             var response = await _userService.DeleteUser(userId);
             return StatusCode(response.StatusCode, response);
