@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VtA026MZsUwQ4MCtnZAMyBLpVFSV0QhJTc6EH7Z1bUUXlMtdFRxk7sqLug1k7WxM9N5GEu6OMo4H+HGcH1kIWw==",
+  "dgSpecHash": "fu1m0jlQhXZQiwrUOisJq+78vP3a/wM73ffsX8bKL89qGuKNAhSxKCp4a4MzKTN3QgIaT2rICRgS5PROdiQLXQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\johnn\\Downloads\\MAIN\\MAIN2\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\johnn\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
+    "C:\\Users\\johnn\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.0\\microsoft.aspnetcore.cryptography.internal.8.0.0.nupkg.sha512",
