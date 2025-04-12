@@ -23,10 +23,12 @@ builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<IITemRepository, ItemRepository>();
 
 
-//builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EFDbContext")));
-// Configure SQLite connection string
-builder.Services.AddDbContext<EFDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("EFDbContext")));
+builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer
+(builder.Configuration.GetConnectionString("EFDbContext")));
+
+//Configure SQLite connection string
+//builder.Services.AddDbContext<EFDbContext>(options =>
+//    options.UseSqlite(builder.Configuration.GetConnectionString("EFDbContext")));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
@@ -74,9 +76,6 @@ var cloudinary = new Cloudinary(cloudinaryAccount);
 // Register Cloudinary as a singleton in the DI container
 builder.Services.AddSingleton(cloudinary);
 
-// Register Cloudinary as a singleton in the DI container
-builder.Services.AddSingleton(cloudinary);
-
 
 builder.Services.AddAuthentication(options =>
 {
@@ -113,26 +112,32 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Middleware
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
 // Seed data
-using(var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    await SeedData.Initialize(services);
-}
+//using(var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    await SeedData.Initialize(services);
+//}
 
 // Configure the HTTP request pipeline.
-if(app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if(app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-// Add Authentication
-builder.Services.AddAuthentication();
+//// Add Authentication
+//builder.Services.AddAuthentication();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -47,7 +47,7 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[14.0.0, )"
+              "version": "[13.0.1, )"
             },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",

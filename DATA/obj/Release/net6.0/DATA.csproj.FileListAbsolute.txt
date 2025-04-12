@@ -1,0 +1,13 @@
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\bin\Release\net6.0\DATA.deps.json
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\bin\Release\net6.0\DATA.dll
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\bin\Release\net6.0\DATA.pdb
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.csproj.AssemblyReference.cache
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.AssemblyInfoInputs.cache
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.AssemblyInfo.cs
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.csproj.CoreCompileInputs.cache
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.sourcelink.json
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.dll
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\refint\DATA.dll
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\DATA.pdb
+C:\Users\johnn\Downloads\MAIN\MAIN2\E-DeviceFinder-BackEndAPI\DATA\obj\Release\net6.0\ref\DATA.dll
