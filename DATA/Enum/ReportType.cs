@@ -2,8 +2,8 @@
 {
     public enum ReportType
     {
-        Lost,
-        Stolen
+        Lost = 1,
+        Stolen = 2
 
     }
 }
