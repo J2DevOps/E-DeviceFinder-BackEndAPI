@@ -137,6 +137,7 @@ namespace CORE.ReportService
                         Category = reportRequest.Item.Category,
                         CreatedAt = DateTime.Now,
                         ImageUrl = uploadImageResult.Url.ToString(),
+
                     };
 
                     await _iTem.AddItemAsync(newItem);
