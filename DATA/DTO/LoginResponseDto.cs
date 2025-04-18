@@ -10,6 +10,8 @@
         public UserRsponseDto UserRsponse { get; set; }
 
         public string ErrorDetails { get; set; }
+        public string UserRole { get; set; }
+
 
 
     }

@@ -132,25 +132,35 @@ namespace CORE.UserServices
         public async Task<LoginResponseDto> UserLogin(LoginRequestDto user)
         {
             var userLogin = await _userManager.FindByEmailAsync(user.Email);
-            if(user == null)
+            if(userLogin == null)
             {
                 return new LoginResponseDto { StatusCode = 400, Message = "Invalid username or password." };
             }
 
-
-
             if(await _userManager.CheckPasswordAsync(userLogin, user.Password))
             {
+                // Get roles for the user
+                var userRoles = await _userManager.GetRolesAsync(userLogin);
+
                 var authClaims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            };
-                var userdetails = new UserRsponseDto
+        {
+            new Claim(ClaimTypes.Name, user.Email),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+        };
+
+                // Add role claims
+                foreach(var role in userRoles)
+                {
+                    authClaims.Add(new Claim(ClaimTypes.Role, role));
+                }
+
+                // Build the user response DTO and include the first role (or multiple if needed)
+                var userDetails = new UserRsponseDto
                 {
                     FirstName = userLogin.FirstName,
                     LastName = userLogin.LastName,
                     Email = userLogin.Email,
+                    Id = userLogin.Id,
                 };
 
                 var jwtToken = GetToken(authClaims);
@@ -159,12 +169,15 @@ namespace CORE.UserServices
                 {
                     StatusCode = 200,
                     Token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
-                    UserRsponse = userdetails
+                    UserRsponse = userDetails,
+                    UserRole = userRoles.FirstOrDefault(), // Or a list if your DTO supports it
+
                 };
             }
 
-            return new LoginResponseDto { StatusCode = 401, Message = "Invalid username or password." };
+            return new LoginResponseDto { StatusCode = 400, Message = "Invalid username or password." };
         }
+
 
         public JwtSecurityToken GetToken(List<Claim> authClaims)
         {
