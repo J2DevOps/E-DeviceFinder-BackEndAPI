@@ -53,12 +53,12 @@ namespace DATA.Repository
                 await _context.SaveChangesAsync();
             }
         }
-        //public async Task<IEnumerable<Report>> GetAllReports()
-        //{
-        //    var reports = await _context.Reports.ToListAsync();
-        //    return reports.Count > 0 ? reports : null;
+        // 🔍 Search by item name, category, or report type
+        public async Task<IEnumerable<Report>> SearchReportsAsync(string keyword)
+        {
+            return await _context.Reports.Where(r => r.Item.Name == keyword || r.Item.Description.Contains(keyword)).ToListAsync();
 
-        //}
+        }
     }
 }
 

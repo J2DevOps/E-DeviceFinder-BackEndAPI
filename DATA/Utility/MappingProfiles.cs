@@ -10,6 +10,7 @@ namespace DATA.Utility
         {
             CreateMap<ApplicationUser, UserRsponseDto>().ReverseMap();
             CreateMap<Report, ReportResponseDto>().ReverseMap();
+            CreateMap<Item, ItemResponseDto>().ReverseMap();
 
         }
     }
