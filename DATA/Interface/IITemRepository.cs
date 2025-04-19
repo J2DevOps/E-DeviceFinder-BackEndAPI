@@ -9,6 +9,6 @@ namespace DATA.Interface
         Task<bool> AddItemAsync(Item item);
         Task<Item> GetItemByIdAsync(string id);
         Task<IEnumerable<Item>> GetAllItems();
-
+        Task<IEnumerable<Item>> SearchItemsAsync(string keyword);
     }
 }

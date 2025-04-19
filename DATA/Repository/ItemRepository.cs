@@ -52,12 +52,11 @@ namespace DATA.Repository
                 await _context.SaveChangesAsync();
             }
         }
-        //public async Task<IEnumerable<Item>> GetAllItems()
-        //{
-        //    var items = await _context.Items.ToListAsync();
-        //    return items.Count > 0 ? items : null;
+        public async Task<IEnumerable<Item>> SearchItemsAsync(string keyword)
+        {
+            return await _context.Items.Where(r => r.Name == keyword || r.Description.Contains(keyword)).ToListAsync();
 
-        //}
+        }
 
     }
 }

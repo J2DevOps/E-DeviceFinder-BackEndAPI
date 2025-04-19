@@ -1,5 +1,4 @@
 ﻿using DATA.DTO;
-using System.Threading.Tasks;
 
 namespace CORE.ReportService
 {
@@ -10,5 +9,6 @@ namespace CORE.ReportService
         Task<ResponseDto> CreateReport(ReportRequestDto reportRequest);
         Task<ResponseDto> GetReportByIdAsync(string reportId);
         Task<ResponseDto> GetAllReports();
+        Task<ResponseDto> SearchReportsAsync(string keyword);
     }
 }

@@ -97,6 +97,15 @@ namespace EF_API.Controllers.ReportController
 
             return StatusCode(response.StatusCode, response);
         }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchReports([FromQuery] string query)
+        {
+            // Call a method in the service to perform the search, passing the query parameter
+            var response = await _reportService.SearchReportsAsync(query);
+
+            return StatusCode(response.StatusCode, response);
+        }
     }
 
 
