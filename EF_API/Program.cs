@@ -1,4 +1,5 @@
 using CloudinaryDotNet;
+using CORE.ItemServices;
 using CORE.ReportService;
 using CORE.UserServices;
 using DATA.Context;
@@ -21,6 +22,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IReport, ReportRepository>();
 builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<IITemRepository, ItemRepository>();
+builder.Services.AddScoped<IItemService, ItemService>();
+
 
 
 builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer

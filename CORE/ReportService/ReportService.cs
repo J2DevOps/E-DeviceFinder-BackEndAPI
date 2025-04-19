@@ -230,6 +230,50 @@ namespace CORE.ReportService
                 return new ResponseDto { StatusCode = 500, Message = ex.Message };
             }
         }
+
+        /// <summary>
+        /// Searches reports by keyword (Item name, category, or report type).
+        /// </summary>
+        /// <param name="keyword">Search keyword.</param>
+        /// <returns>ResponseDto with matching reports.</returns>
+        public async Task<ResponseDto> SearchReportsAsync(string keyword)
+        {
+            var response = new ResponseDto();
+
+            if(string.IsNullOrWhiteSpace(keyword))
+            {
+                response.StatusCode = 400;
+                response.Message = "Keyword cannot be empty.";
+                return response;
+            }
+
+            try
+            {
+                var matchedReports = await _reportRepository.SearchReportsAsync(keyword);
+
+                if(!matchedReports.Any())
+                {
+                    response.StatusCode = 404;
+                    response.Message = "No reports found matching the search criteria.";
+                    return response;
+                }
+
+                var mappedReports = matchedReports
+                    .Select(report => _mapper.Map<ReportResponseDto>(report))
+                    .ToList();
+
+                response.StatusCode = 200;
+                response.Message = "Search successful.";
+                response.Result = mappedReports;
+                return response;
+            }
+            catch(Exception ex)
+            {
+                response.StatusCode = 500;
+                response.Message = $"An error occurred during the search: {ex.Message}";
+                return response;
+            }
+        }
     }
 
 
