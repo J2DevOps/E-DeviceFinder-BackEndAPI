@@ -123,11 +123,12 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
 // Seed data
-//using(var scope = app.Services.CreateScope())
-//{
-//    var services = scope.ServiceProvider;
-//    await SeedData.Initialize(services);
-//}
+using(var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await EFDbContext.SeedRolesAndAdminAsync(services);
+}
+
 
 // Configure the HTTP request pipeline.
 //if(app.Environment.IsDevelopment())
