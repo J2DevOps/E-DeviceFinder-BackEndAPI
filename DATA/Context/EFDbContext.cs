@@ -1,6 +1,8 @@
 ﻿using DATA.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DATA.Context
 {
@@ -18,5 +20,39 @@ namespace DATA.Context
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+
+
+
+        }
+        public static async Task SeedRolesAndAdminAsync(IServiceProvider serviceProvider)
+        {
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            // Create Roles
+            if(!await roleManager.RoleExistsAsync("Admin"))
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
+
+            if(!await roleManager.RoleExistsAsync("User"))
+                await roleManager.CreateAsync(new IdentityRole("User"));
+
+            // Create Admin User
+            var adminUser = await userManager.FindByEmailAsync("admin@example.com");
+            if(adminUser == null)
+            {
+                adminUser = new ApplicationUser
+                {
+                    UserName = "admin",
+                    Email = "admin@example.com"
+                };
+                await userManager.CreateAsync(adminUser, "Admin@123");
+                await userManager.AddToRoleAsync(adminUser, "Admin");
+            }
+        }
+
     }
 }
