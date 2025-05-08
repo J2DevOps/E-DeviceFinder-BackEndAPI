@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HoA+OPlBWzD6vkLJna4Qj9aqFo1JGasbR7+D1A4BLncfDJ83rq8o67RF6MAmP/09wkTq49loyGKjQ/KVpYX/mA==",
+  "dgSpecHash": "xLQXEC67fUDjJCLxKnUrOZcrYXo0Qv7UeFNli76DqhOTzF24Dt0e0TQQsfFITDjye1W1nIw90QDEUgIy67/NiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\johnn\\Downloads\\Week6\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
+  "projectFilePath": "C:\\Users\\johnn\\Downloads\\Week7\\E-DeviceFinder-BackEndAPI\\DATA\\DATA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\johnn\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\johnn\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
