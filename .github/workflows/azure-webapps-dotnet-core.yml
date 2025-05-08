@@ -1,0 +1,58 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - EFAPI20250503133217
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore EF_API/EF_API.sln
+
+      - name: Build with dotnet
+        run: dotnet build EF_API/EF_API.sln --configuration Release
+
+      - name: Publish
+        run: dotnet publish EF_API/EF_API.sln --configuration Release --output ${{ github.workspace }}/publish
+
+      - name: Upload artifact for deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-app
+          path: ${{ github.workspace }}/publish
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: dotnet-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'EFAPI20250503133217'
+          slot-name: 'Production'
+          package: .
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_a52a21bf93b74d4f854cf0973a1e3e3d }}
