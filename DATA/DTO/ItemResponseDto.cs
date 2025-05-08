@@ -4,6 +4,7 @@ namespace DATA.DTO
 {
     public class ItemResponseDto
     {
+        public string Id { get; set; }
         public string Name { get; set; }  // Item name (e.g., "Laptop", "Phone")
         public string ImageUrl { get; set; }  // Item name (e.g., "Laptop", "Phone")
 

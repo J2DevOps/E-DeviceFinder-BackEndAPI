@@ -1,4 +1,5 @@
 using CloudinaryDotNet;
+using CORE.ClaimServices;
 using CORE.ItemServices;
 using CORE.ReportService;
 using CORE.UserServices;
@@ -23,6 +24,8 @@ builder.Services.AddScoped<IReport, ReportRepository>();
 builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<IITemRepository, ItemRepository>();
 builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<IClaim, ClaimRepository>();
+builder.Services.AddScoped<IClaimService, ClaimService>();
 
 
 
