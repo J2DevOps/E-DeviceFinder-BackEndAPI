@@ -66,7 +66,7 @@ namespace CORE.ClaimServices
                     return new ResponseDto { StatusCode = 201, Message = "Claims Fetched successfully", Result = newclaim };
 
                 }
-                return new ResponseDto { StatusCode = 301, Message = "Claims failed", Result = null };
+                return new ResponseDto { StatusCode = 301, Message = "Error trying to fetch Claims ", Result = null };
 
 
 
