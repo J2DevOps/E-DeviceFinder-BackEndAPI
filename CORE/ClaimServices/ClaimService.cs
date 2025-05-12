@@ -33,6 +33,7 @@ namespace CORE.ClaimServices
                 var newItem = new Claim
                 {
                     ClaimReason = reportRequest.ClaimReason,
+                    ItemName = reportRequest.ItemName,
                     ClaimDate = DateTime.Today,
                     ItemId = reportRequest.ItemId,
                     UserId = reportRequest.UserId,
