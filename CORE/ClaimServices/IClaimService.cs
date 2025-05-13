@@ -6,5 +6,6 @@ namespace CORE.ClaimServices
     {
         Task<ResponseDto> CreateClaim(ClaimrequestDto reportRequest);
         Task<ResponseDto> GetAllClaim();
+        Task<ResponseDto> DeliteClaim(string Id);
     }
 }

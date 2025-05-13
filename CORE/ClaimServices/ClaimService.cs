@@ -77,5 +77,28 @@ namespace CORE.ClaimServices
                 return new ResponseDto { StatusCode = 500, Message = ex.Message };
             }
         }
+        public async Task<ResponseDto> DeliteClaim(string Id)
+        {
+
+            try
+            {
+
+                var newclaim = await _claim.DeleteClaim(Id);
+                if(newclaim)
+                {
+                    return new ResponseDto { StatusCode = 201, Message = "Claim deleted successfully", Result = newclaim };
+
+                }
+                return new ResponseDto { StatusCode = 301, Message = "Error trying to delete Claims ", Result = null };
+
+
+
+            }
+            catch(Exception ex)
+            {
+                // Log the exception
+                return new ResponseDto { StatusCode = 500, Message = ex.Message };
+            }
+        }
     }
 }
