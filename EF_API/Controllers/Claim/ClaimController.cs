@@ -41,5 +41,15 @@ namespace EF_API.Controllers.Claim
 
             return StatusCode(response.StatusCode, response);
         }
+        [HttpDelete]
+
+        public async Task<IActionResult> DeletClaim(string Id)
+        {
+
+
+            var response = await _claim.DeliteClaim(Id);
+
+            return StatusCode(response.StatusCode, response);
+        }
     }
 }
